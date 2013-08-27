@@ -1,0 +1,10 @@
+<h1>Craigslist Jr</h1>
+<% @categories.each do |category| %>
+  <h4><%= category.category %></h4>
+<% end %>
+
+<!-- # <%= link_to(@category) do |category|%>
+#   <%= category %>
+# <% end %> -->
+
+<%= link_to "Create", new_category_path(@category) %>
