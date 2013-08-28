@@ -1,0 +1,9 @@
+<h2><%= 'Create New ' + @category.name + ' Post' %></h2>
+<%= form_for @post, { url: category_posts_path(@category) } do |form| %>
+<%= label_tag(:title, "Title of Post") %>
+<%= form.text_field(:title) %>
+<%= label_tag(:description, "Description") %>
+<%= form.text_area(:description) %>
+<%= form.submit %>
+<% end %>
+

@@ -9,14 +9,19 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new
-    render 'new'
+    @category = Category.create(category_params)
+    redirect_to categories_path
   end
 
   def show
+    @category = Category.find(params[:id])
+    @posts = Post.where(category_id: params[:id])
   end
 
-  def destroy
+  private
+
+  def category_params
+    params.require(:category).permit([:name])
   end
 
 end
